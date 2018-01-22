@@ -12,4 +12,11 @@ function readMessage(req, res) {
 	});
 }
 
+router.post('/', queueMessage);
+
+function queueMessage(req, res) {
+	queue.push(req.body.msg);
+	res.json(true);
+}
+
 module.exports = router;
