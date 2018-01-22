@@ -8,6 +8,7 @@ const index = require('./routes/index');
 const queue = require('./routes/queue'); //G: queue hinzugefügt
 const worker = require('./routes/worker'); //G: worker hinzugefügt
 const polling = require('./routes/polling'); //G: polling hinzugefügt
+const pubsub = require('./routes/pubsub'); //G: pubsub hinzugefügt
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/', index);
 app.use('/queue', queue); //G: queue hinzugefügt
 app.use('/worker', worker); //G: worker hinzugefügt
 app.use('/polling', polling); //G: polling hinzugefügt
+app.use('/pubsub', pubsub); //G: pubsub hinzugefügt
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
