@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const queue = require('./routes/queue'); //G: queue hinzugefügt
 const worker = require('./routes/worker'); //G: worker hinzugefügt
+const polling = require('./routes/polling'); //G: polling hinzugefügt
 
 const app = express();
 
@@ -22,8 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Configure routes in Express webserver
 app.use('/', index);
-app.use('/', queue); //G: queue hinzugefügt
-app.use('/', worker); //G: worker hinzugefügt
+app.use('/queue', queue); //G: queue hinzugefügt
+app.use('/worker', worker); //G: worker hinzugefügt
+app.use('/polling', polling); //G: polling hinzugefügt
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
